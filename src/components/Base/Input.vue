@@ -5,7 +5,7 @@
         @keyup.enter="onEnter"
         :type="type"
         :placeholder="placeholder"
-        class="flex-1 px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg bg-white rounded-xl sm:rounded-l-2xl sm:rounded-r-none border-none outline-none text-gray-700 placeholder-gray-400"
+        class="flex-1 px-4 sm:px-6 py-3 sm:py-4 text-base bg-white rounded-xl   outline-none border w-full border-gray-400 text-gray-700 placeholder-gray-400"
     />
 </template>
 

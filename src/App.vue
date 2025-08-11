@@ -2,38 +2,25 @@
   <div class="min-h-screen bg-gradient-to-br from-teal-800 via-slate-800 to-purple-800 p-4 sm:p-6 lg:p-8">
     <div class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto">
       <!-- Title -->
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mb-8 sm:mb-10 lg:mb-12 tracking-wider px-4">
+      <h1
+        class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mb-8 sm:mb-10 lg:mb-12 tracking-wider px-4">
         MY TO DO LIST
       </h1>
-      
+
       <!-- Add Todo Form -->
       <div class="flex flex-col sm:flex-row gap-3 sm:gap-0 mb-6 sm:mb-8 px-4 sm:px-0">
-        <BaseInput
-          v-model="newTodo"
-          type="text"
-          placeholder="Masukan to do list"
-          @enter="handleAddTodo"
-        />
+        <BaseInput v-model="newTodo" type="text" placeholder="Masukan to do list" @enter="handleAddTodo" />
 
-        <BaseButton label="Save" @add="handleAddTodo" />
+        <BaseButton variant="primary" label="Add" @click="handleAddTodo" icon-name="heroicons:plus-circle" has-icon
+          iconClassName="text-white" />
       </div>
-      
-      <!-- Todo List -->
-      <TodoList
-      :todos="todos"
-      :editing-id="editingId"
-      :edit-text="editText"
-      @delete="handleDeleteTodo"
-      @edit="openEditModal"
-    />
 
-    <EditTodoModal
-      :show="isEditModalOpen"
-      :todo-text="editText"
-      @save="saveEdit"
-      @cancel="closeEditModal"
-    />
-      
+      <!-- Todo List -->
+      <TodoList :todos="todos" :editing-id="editingId" :edit-text="editText" @delete="handleDeleteTodo"
+        @edit="openEditModal" />
+
+      <EditTodoModal :show="isEditModalOpen" :todo-text="editText" @save="saveEdit" @cancel="closeEditModal" />
+
       <!-- Empty State -->
       <div v-if="todos.length === 0" class="text-center py-8 sm:py-12 px-4">
         <p class="text-white/60 text-base sm:text-lg">No tasks yet. Add your first to-do item above!</p>
